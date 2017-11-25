@@ -6,80 +6,13 @@
 #    By: tbailly- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 14:55:46 by tbailly-          #+#    #+#              #
-#    Updated: 2017/11/20 13:30:05 by tbailly-         ###   ########.fr        #
+#    Updated: 2017/11/25 01:18:55 by tbailly-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 HEADER_PATH = ./
-OBJS = ft_memset.o \
-	   ft_bzero.o \
-	   ft_memcpy.o \
-	   ft_memccpy.o \
-	   ft_memmove.o \
-	   ft_memchr.o \
-	   ft_memcmp.o \
-	   ft_strlen.o \
-	   ft_strdup.o \
-	   ft_strcpy.o \
-	   ft_strncpy.o \
-	   ft_strcat.o \
-	   ft_strncat.o \
-	   ft_strlcat.o \
-	   ft_strchr.o \
-	   ft_strrchr.o \
-	   ft_strstr.o \
-	   ft_strnstr.o \
-	   ft_strcmp.o \
-	   ft_strncmp.o \
-	   ft_atoi.o \
-	   ft_isalpha.o \
-	   ft_isdigit.o \
-	   ft_isalnum.o \
-	   ft_isascii.o \
-	   ft_isprint.o \
-	   ft_toupper.o \
-	   ft_tolower.o \
-	   \
-	   ft_memalloc.o \
-	   ft_memdel.o \
-	   ft_strnew.o \
-	   ft_strdel.o \
-	   ft_strclr.o \
-	   ft_striter.o \
-	   ft_striteri.o \
-	   ft_strmap.o \
-	   ft_strmapi.o \
-	   ft_strequ.o \
-	   ft_strnequ.o \
-	   ft_strsub.o \
-	   ft_strjoin.o \
-	   ft_strtrim.o \
-	   ft_strsplit.o \
-	   ft_itoa.o \
-	   ft_putchar.o \
-	   ft_putstr.o \
-	   ft_putendl.o \
-	   ft_putnbr.o \
-	   ft_putchar_fd.o \
-	   ft_putstr_fd.o \
-	   ft_putendl_fd.o \
-	   ft_putnbr_fd.o \
-	   \
-	   ft_swap.o \
-	   ft_strup.o \
-	   ft_strlw.o \
-	   ft_strcleandbl.o \
-	   ft_strrepchr.o \
-	   \
-	   ft_lstnew.o \
-	   ft_lstdelone.o \
-	   ft_lstdel.o \
-	   ft_lstadd.o \
-	   ft_lstiter.o \
-	   ft_lstmap.o
-	  
 
 SRC_PATH = ./
 SRCS = $(SRC_PATH)ft_memset.c \
@@ -141,6 +74,9 @@ SRCS = $(SRC_PATH)ft_memset.c \
 	   $(SRC_PATH)ft_strlw.c \
 	   $(SRC_PATH)ft_strcleandbl.c \
 	   $(SRC_PATH)ft_strrepchr.c \
+	   $(SRC_PATH)ft_putstrarr.c \
+	   $(SRC_PATH)ft_itoa_base.c \
+	   $(SRC_PATH)ft_abs.c \
 	   \
 	   $(SRC_PATH)ft_lstnew.c \
 	   $(SRC_PATH)ft_lstdelone.c \
@@ -149,19 +85,23 @@ SRCS = $(SRC_PATH)ft_memset.c \
 	   $(SRC_PATH)ft_lstiter.c \
 	   $(SRC_PATH)ft_lstmap.c
 
+OBJS = $(SRCS:.c=.o)
+
 FLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
 
-$(NAME):
-	gcc $(FLAGS) -c -I $(HEADER_PATH) $(SRCS)
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+$(NAME): $(OBJS)
+	@gcc $(FLAGS) -c -I $(HEADER_PATH) $(SRCS)
+	@ar rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
 
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re

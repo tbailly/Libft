@@ -6,7 +6,7 @@
 /*   By: tbailly- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 10:43:18 by tbailly-          #+#    #+#             */
-/*   Updated: 2017/11/20 13:35:36 by tbailly-         ###   ########.fr       */
+/*   Updated: 2017/11/25 01:18:37 by tbailly-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,11 @@ void				ft_swap(int *a, int *b);
 char				*ft_strup(char *s);
 char				*ft_strlw(char *s);
 char				*ft_strcleandbl(const char *s, char c);
-char				*ft_strrepchr(const char *s, char c1, char c2);
+char				*ft_strrepchr(char *s, char c1, char c2);
+void				ft_putstrarr(char **s);
+char				*ft_itoaa(int value);
+char				*ft_itoa_base(int value, int base);
+unsigned	int		ft_abs(int a);
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void(*del)(void *, size_t));

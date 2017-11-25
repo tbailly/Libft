@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_abs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbailly- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/14 10:17:00 by tbailly-          #+#    #+#             */
-/*   Updated: 2017/11/24 23:53:22 by tbailly-         ###   ########.fr       */
+/*   Created: 2017/11/25 01:16:18 by tbailly-          #+#    #+#             */
+/*   Updated: 2017/11/25 01:36:15 by tbailly-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+unsigned	int	ft_abs(int a)
 {
-	unsigned	int		i;
-	unsigned	char	*str;
+	unsigned	int	ret;
 
-	i = 0;
-	str = (unsigned char*)s;
-	while (i < n)
-	{
-		if (str[i] == (unsigned char)c)
-			return (&str[i]);
-		i++;
-	}
-	return (NULL);
+	if (a < 0)
+		ret = (unsigned int)a * -1;
+	else
+		ret = (unsigned int)a;
+	return (ret);
 }
