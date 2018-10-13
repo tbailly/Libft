@@ -1,2 +1,0 @@
-Petit truc sans newline
-la pas de newline
